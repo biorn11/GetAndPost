@@ -17,15 +17,15 @@ app.get('/unique',async(request,response)=>{
 })
 app.post('/sum',async(request,response)=>{
 
-    const sumAll = request.query.numbers.split('').reduce((acc,el)=> acc+Number(el),0)
-    response.send(`The sum of the numbers [${request.query.numbers}] is ${sumAll}`)
+    const sumAll = request.body.numbers.split('').reduce((acc,el)=> acc+Number(el),0)
+    response.send(`The sum of the numbers [${request.body.numbers}] is ${sumAll}`)
 
 })
 
 app.post('/unique',async(request,response)=>{
-    
-    const uniqueValues = request.query.numbers.split('').filter((el,i,arr)=> arr.indexOf(el)===i)
-    response.send(`The unique values in [${request.query.numbers}] are ${uniqueValues}`)
+    console.log(request.body)
+    const uniqueValues = request.body.numbers.split('').filter((el,i,arr)=> arr.indexOf(el)===i)
+    response.send(`The unique values in [${request.body.numbers}] are ${uniqueValues}`)
 })
 
 const port = 3000
