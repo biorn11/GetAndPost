@@ -23,7 +23,7 @@ app.post('/sum',async(request,response)=>{
 })
 
 app.post('/unique',async(request,response)=>{
-    console.log(request.body)
+ 
     const uniqueValues = request.body.numbers.split('').filter((el,i,arr)=> arr.indexOf(el)===i)
     response.send(`The unique values in [${request.body.numbers}] are ${uniqueValues}`)
 })
